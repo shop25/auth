@@ -1,5 +1,5 @@
 {
-    "name": "s25/auth",
+    "name": "shop25/auth",
     "description": "laravel package for authentication and authorization by one site credentials and JWT",
     "type": "library",
     "authors": [
