@@ -8,7 +8,7 @@
             "email": "b1c2d3@yandex.ru"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2.0",
         "tymon/jwt-auth": "1.0.x-dev",
