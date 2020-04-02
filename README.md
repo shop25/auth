@@ -3,7 +3,7 @@
 ###Установка
 Для установки в консоле пишем следующее:
 
-`composer req s25/auth:dev-master --prefer-source`
+`composer req shop25/auth:dev-master --prefer-source`
 
 после установки пакета и зависимостей, выполняем команду 
 
@@ -52,3 +52,7 @@
 ```
 
 В файле app/Http/Kernel.php заменяем мидлварь auth на \S25\Auth\Middleware\Authenticate::class
+
+В коммандной строке пишем следующее:
+
+`php artisan vendor:publish --provider="S25\Auth\ThroughAuthServiceProvider"`

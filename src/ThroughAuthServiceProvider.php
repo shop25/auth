@@ -4,6 +4,8 @@ namespace S25\Auth;
 
 use Illuminate\Support\ServiceProvider;
 use S25\Auth\Console\UpdateRolesCommand;
+use S25\Auth\UserProvider\CachedUserProvider;
+use S25\Auth\UserProvider\UserProviderInterface;
 
 class ThroughAuthServiceProvider extends ServiceProvider
 {
@@ -18,7 +20,7 @@ class ThroughAuthServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->publishes(
             [
-                __DIR__ . 'Config/through.php' => config_path('through.php'),
+                __DIR__ . '/Config/through.php' => config_path('through.php'),
             ]
         );
     }
@@ -26,6 +28,7 @@ class ThroughAuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(UserRepositoryInterface::class, RedisUserRepository::class);
+        $this->app->bind(UserProviderInterface::class, CachedUserProvider::class);
     }
 
     protected function extendAuthManager()
