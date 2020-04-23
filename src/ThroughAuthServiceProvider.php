@@ -36,7 +36,7 @@ class ThroughAuthServiceProvider extends ServiceProvider
         if ($this->app->bound('auth')) {
             $this->app->make('auth')->provider(
                 'redis',
-                function ($app, $config) {
+                static function ($app, $config) {
                     return new RedisUserProvider(
                         app()->make(UserRepositoryInterface::class)
                     );

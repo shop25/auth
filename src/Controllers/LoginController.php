@@ -3,6 +3,7 @@
 namespace S25\Auth\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use S25\Auth\RedisUserRepository;
 use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -48,7 +49,7 @@ class LoginController extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function loginByToken(Request $request)
+    public function loginByToken(Request $request): Response
     {
         $token = $this->getToken($request);
 
@@ -74,7 +75,7 @@ class LoginController extends Controller
         return $this->sendLoginResponse($request);
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request): JsonResponse
     {
         $user = $request->user();
         $this->userRepository->remove($user->id);

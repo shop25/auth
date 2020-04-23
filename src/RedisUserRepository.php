@@ -20,7 +20,6 @@ class RedisUserRepository implements UserRepositoryInterface
 
     /**
      * {@inheritDoc}
-     * @throws InvalidArgumentException
      */
     public function find(string $id): ?User
     {
@@ -29,7 +28,6 @@ class RedisUserRepository implements UserRepositoryInterface
 
     /**
      * {@inheritDoc}
-     * @throws InvalidArgumentException
      */
     public function save(User $user): void
     {
@@ -38,7 +36,6 @@ class RedisUserRepository implements UserRepositoryInterface
 
     /**
      * {@inheritDoc}
-     * @throws InvalidArgumentException
      */
     public function remove(string $id): void
     {

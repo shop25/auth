@@ -7,7 +7,7 @@
 
 после установки пакета и зависимостей, выполняем команду 
 
-`php artisan vendor:publish --provider=S25\Auth\ThroughAuthServiceProvider`
+`php artisan vendor:publish --provider="S25\Auth\ThroughAuthServiceProvider"`
 
 В файле config/app.php подключить сервис провайдер /S25/Auth/ThroughAuthServiceProvider
 
@@ -53,6 +53,11 @@
 
 В файле app/Http/Kernel.php заменяем мидлварь auth на \S25\Auth\Middleware\Authenticate::class
 
-В коммандной строке пишем следующее:
+Добавляем в .env следующие переменные
 
-`php artisan vendor:publish --provider="S25\Auth\ThroughAuthServiceProvider"`
+JWT_SECRET=текущий код для генерации jwt
+AUTH_SERVICE=url авторизационного сервиса
+
+
+
+
