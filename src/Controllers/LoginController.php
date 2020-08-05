@@ -3,7 +3,6 @@
 namespace S25\Auth\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
 use S25\Auth\RedisUserRepository;
 use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -49,7 +48,7 @@ class LoginController extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function loginByToken(Request $request): Response
+    public function loginByToken(Request $request)
     {
         $token = $this->getToken($request);
 
