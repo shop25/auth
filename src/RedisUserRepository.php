@@ -11,8 +11,6 @@ class RedisUserRepository implements UserRepositoryInterface
     /** @var RedisStore */
     private $redis;
 
-    private const TTL = 60 * 60;
-
     public function __construct(RedisStore $redis)
     {
         $this->redis = $redis;
@@ -31,7 +29,7 @@ class RedisUserRepository implements UserRepositoryInterface
      */
     public function save(User $user): void
     {
-        $this->redis->put($user->getAuthIdentifier(), $user, self::TTL);
+        $this->redis->put($user->getAuthIdentifier(), $user, config('session.lifetime'));
     }
 
     /**
