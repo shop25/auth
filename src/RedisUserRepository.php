@@ -29,7 +29,7 @@ class RedisUserRepository implements UserRepositoryInterface
      */
     public function save(User $user): void
     {
-        $this->redis->put($user->getAuthIdentifier(), $user, config('session.lifetime'));
+        $this->redis->put($user->getAuthIdentifier(), $user, config('session.lifetime') * 60);
     }
 
     /**
