@@ -8,8 +8,6 @@ use S25\Auth\User;
 
 class CachedUserProvider implements UserProviderInterface
 {
-    private const TTL = 60 * 60; //one hour
-
     /** @var UserProviderInterface */
     private $userRepository;
 
@@ -29,7 +27,7 @@ class CachedUserProvider implements UserProviderInterface
 
         if ($user === null) {
             $user = $this->userRepository->getByUid($uid);
-            $this->cache->set($cacheKey, $user, self::TTL);
+            $this->cache->set($cacheKey, $user, config('session.lifetime') * 60);
         }
 
         return $user;
