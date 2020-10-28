@@ -7,6 +7,8 @@
 
 В файле config/app.php подключить сервис провайдер /S25/Auth/ThroughAuthServiceProvider
 
+В командной строке в корне проекта выполняем команду
+
 `php artisan vendor:publish --provider="S25\\Auth\\ThroughAuthServiceProvider"`
 
 Далее в файле config/auth.php меняем 
