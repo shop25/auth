@@ -36,7 +36,7 @@ class HttpUserRepository implements UserProviderInterface
 
         if ($userData['users']) {
             foreach ($userData['users'] as $user) {
-                return new User($user);
+                $users[] = new User($user);
             }
         }
 
