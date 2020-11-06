@@ -32,4 +32,17 @@ class CachedUserProvider implements UserProviderInterface
 
         return $user;
     }
+
+    public function all(): array
+    {
+        $cacheKey = sprintf('users');
+        $users = $this->cache->get($cacheKey);
+
+        if ($users === null) {
+            $users = $this->userRepository->all();
+            $this->cache->set($cacheKey, $users, config('session.lifetime') * 60);
+        }
+
+        return $users;
+    }
 }
