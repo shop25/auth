@@ -26,4 +26,13 @@ class UserServiceHttpClient
 
         return $response->getBody()->getContents();
     }
+
+    public function all()
+    {
+        $response = $this->httpClient->get(
+            sprintf('%s/api/users', $this->apiUrl)
+        );
+
+        return $response->getBody()->getContents();
+    }
 }

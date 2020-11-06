@@ -26,4 +26,20 @@ class HttpUserRepository implements UserProviderInterface
 
         return null;
     }
+
+    public function all(): array
+    {
+        $response = $this->userClient->all();
+        $userData = json_decode($response, true);
+
+        $users = [];
+
+        if ($userData['users']) {
+            foreach ($userData['users'] as $user) {
+                return new User($user);
+            }
+        }
+
+        return $users;
+    }
 }
