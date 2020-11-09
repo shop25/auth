@@ -33,9 +33,9 @@ class CachedUserProvider implements UserProviderInterface
         return $user;
     }
 
-    public function all(): array
+    public function all(?string $projectCode): array
     {
-        $cacheKey = sprintf('users');
+        $cacheKey = sprintf('users::%s', $projectCode);
         $users = $this->cache->get($cacheKey);
 
         if ($users === null) {

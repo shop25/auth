@@ -8,5 +8,5 @@ use S25\Auth\User;
 interface UserProviderInterface
 {
     public function getByUid(string $uid): ?User;
-    public function all(): array;
+    public function all(?string $projectCode): array;
 }

@@ -27,10 +27,19 @@ class UserServiceHttpClient
         return $response->getBody()->getContents();
     }
 
-    public function all()
+    public function all(?string $projectCode)
     {
+        $query = null;
+
+        if ($projectCode) {
+            $query = ['project' => $projectCode];
+        }
+
         $response = $this->httpClient->get(
-            sprintf('%s/api/users', $this->apiUrl)
+            sprintf('%s/api/users', $this->apiUrl),
+            [
+                'query' => $query
+            ]
         );
 
         return $response->getBody()->getContents();
