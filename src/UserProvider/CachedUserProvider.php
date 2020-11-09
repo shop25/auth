@@ -39,7 +39,7 @@ class CachedUserProvider implements UserProviderInterface
         $users = $this->cache->get($cacheKey);
 
         if ($users === null) {
-            $users = $this->userRepository->all();
+            $users = $this->userRepository->all($projectCode);
             $this->cache->set($cacheKey, $users, config('session.lifetime') * 60);
         }
 
