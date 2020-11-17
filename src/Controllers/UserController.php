@@ -27,18 +27,7 @@ class UserController extends Controller
             return abort(401, 'Unauthorized');
         }
 
-        $userResource = [
-            'id'              => $user->id,
-            'firstName'       => $user->firstName,
-            'lastName'        => $user->lastName,
-            'phone'           => $user->phone,
-            'avatar'          => $user->avatar,
-            'positionName'    => $user->positionName,
-            'groupId'         => $user->groupId,
-            'personnelNumber' => $user->personnelNumber,
-        ];
-
-        return JsonResponse::create(['user' => $userResource]);
+        return JsonResponse::create(['user' => UserResource::make($user)]);
     }
 
     public function all(Request $request)
