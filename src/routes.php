@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use S25\Auth\Controllers\UserController;
 
-Route::group(['middleware' => ['auth:api']], static function () {
+Route::group(['middleware' => ['api']], static function () {
     Route::get('/api/user', function (Request $request) {
         return $request->user();
     });
