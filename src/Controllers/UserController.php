@@ -27,6 +27,8 @@ class UserController extends Controller
             return abort(401, 'Unauthorized');
         }
 
+        $user = $this->users->getByUid($user->id);
+
         return JsonResponse::create(['user' => UserResource::make($user)]);
     }
 
