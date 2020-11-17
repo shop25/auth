@@ -4,9 +4,7 @@ use Illuminate\Http\Request;
 use S25\Auth\Controllers\UserController;
 
 Route::group(['middleware' => ['api']], static function () {
-    Route::get('/api/user', function (Request $request) {
-        return $request->user();
-    });
+    Route::get('/api/user', [UserController::class, 'user']);
     Route::get('/api/users', [UserController::class, 'all']);
 });
 
