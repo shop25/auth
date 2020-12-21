@@ -43,7 +43,7 @@ class LoginController extends Controller
      */
     public function __construct(RedisUserRepository $userRepository)
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout', 'loginByToken');
 
         $this->userRepository = $userRepository;
     }
