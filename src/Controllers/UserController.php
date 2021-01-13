@@ -34,7 +34,7 @@ class UserController extends Controller
 
     public function all(Request $request)
     {
-        $managers = collect($this->users->all(config('through.app_code')))->keyBy('id');
+        $managers = collect($this->users->all($request->input('project')))->keyBy('id');
 
         $groupedManagers = [];
 
