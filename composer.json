@@ -11,9 +11,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.2.0",
-        "tymon/jwt-auth": "1.0.x-dev",
+        "laravel/passport": "^v9.4.0",
         "guzzlehttp/guzzle": ">=6.3.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^3.2"
     },
     "autoload": {
         "psr-4": {
