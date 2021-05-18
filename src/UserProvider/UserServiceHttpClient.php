@@ -15,7 +15,7 @@ class UserServiceHttpClient
     public function __construct(Client $client)
     {
         $this->httpClient = $client;
-        $this->apiUrl = config('through.auth_service');
+        $this->apiUrl = rtrim(config('through.auth_service'), '/');
     }
 
     public function getById(string $uid)
