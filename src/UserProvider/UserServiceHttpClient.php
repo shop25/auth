@@ -16,6 +16,7 @@ class UserServiceHttpClient
     {
         $this->httpClient = $client;
         $this->apiUrl = rtrim(config('through.auth_service'), '/');
+
     }
 
     public function getById(string $uid)
