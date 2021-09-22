@@ -15,10 +15,10 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (($authServiceUrl = config('through.auth_service')) === null) {
+        if (($authServiceUrl = rtrim(config('through.auth_service'), '/')) === null) {
             abort(403, 'Unauthorized');
         }
 
-        return $authServiceUrl . 'get_token?returnUrl=' . config('through.app_url') . '/me?auth_token=';
+        return $authServiceUrl . '/get_token?returnUrl=' . rtrim(config('through.app_url'), '/') . '/me?auth_token=';
     }
 }
