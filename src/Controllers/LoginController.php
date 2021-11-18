@@ -81,9 +81,9 @@ class LoginController extends Controller
         $request->session()->flush();
 
         $client = new Client();
-        $client->post(config('through.auth_service') . 'logout');
+        $client->post(rtrim(config('through.auth_service'), '/') . '/logout');
 
-        return JsonResponse::create(['url' => config('through.auth_service') . 'logout']);
+        return JsonResponse::create(['url' => rtrim(config('through.auth_service'), '/') . '/logout']);
     }
 
     private function getToken(Request $request)
