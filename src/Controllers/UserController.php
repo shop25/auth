@@ -44,4 +44,11 @@ class UserController extends Controller
 
         return new JsonResponse($groupedManagers);
     }
+
+    public function flat(Request $request)
+    {
+        $managers = collect($this->users->all($request->input('project')))->keyBy('id');
+
+        return new JsonResponse(UserResource::collection($managers));
+    }
 }
