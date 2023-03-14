@@ -39,9 +39,9 @@ class LoginController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param UserRepository $userRepository
+     * @param S25UserRepository $userRepository
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(S25UserRepository $userRepository)
     {
         $this->middleware('guest')->except('logout', 'loginByToken');
 
