@@ -6,6 +6,7 @@ use S25\Auth\Controllers\UserController;
 Route::group(['middleware' => ['api']], static function () {
     Route::get('/api/user', [UserController::class, 'user']);
     Route::get('/api/users', [UserController::class, 'all']);
+    Route::get('/api/users/flat', [UserController::class, 'flat']);
 });
 
 Route::group(['middleware' => ['web']], static function () {

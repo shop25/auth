@@ -6,12 +6,12 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 use Psr\SimpleCache\InvalidArgumentException;
 
-class RedisUserProvider implements UserProvider
+class CachedUserProvider implements UserProvider
 {
-    /** @var RedisUserRepository */
+    /** @var CachedUserRepository */
     private $repository;
 
-    public function __construct(RedisUserRepository $repository)
+    public function __construct(CachedUserRepository $repository)
     {
         $this->repository = $repository;
     }

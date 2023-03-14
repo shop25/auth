@@ -3,7 +3,7 @@
 namespace S25\Auth\Controllers;
 
 use App\Http\Controllers\Controller;
-use S25\Auth\RedisUserRepository;
+use S25\Auth\CachedUserRepository;
 use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
@@ -33,15 +33,15 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
-    /** @var RedisUserRepository */
+    /** @var CachedUserRepository */
     private $userRepository;
 
     /**
      * Create a new controller instance.
      *
-     * @param RedisUserRepository $userRepository
+     * @param CachedUserRepository $userRepository
      */
-    public function __construct(RedisUserRepository $userRepository)
+    public function __construct(CachedUserRepository $userRepository)
     {
         $this->middleware('guest')->except('logout', 'loginByToken');
 
