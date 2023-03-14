@@ -7,7 +7,7 @@ use Illuminate\Cache\RedisStore;
 use Illuminate\Cache\Repository;
 use Psr\SimpleCache\InvalidArgumentException;
 
-class CachedUserRepository implements UserRepositoryInterface
+class S25UserRepository implements UserRepositoryInterface
 {
     /** @var Repository */
     private $repository;

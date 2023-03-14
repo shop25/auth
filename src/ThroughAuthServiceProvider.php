@@ -27,7 +27,7 @@ class ThroughAuthServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind(UserRepositoryInterface::class, CachedUserRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, S25UserRepository::class);
         $this->app->bind(UserProviderInterface::class, CachedUserProvider::class);
     }
 
@@ -37,7 +37,7 @@ class ThroughAuthServiceProvider extends ServiceProvider
             $this->app->make('auth')->provider(
                 'redis',
                 static function ($app, $config) {
-                    return new CachedUserProvider(
+                    return new S25UserProvider(
                         app()->make(UserRepositoryInterface::class)
                     );
                 }

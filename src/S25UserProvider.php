@@ -6,12 +6,12 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 use Psr\SimpleCache\InvalidArgumentException;
 
-class CachedUserProvider implements UserProvider
+class S25UserProvider implements UserProvider
 {
-    /** @var CachedUserRepository */
+    /** @var UserRepositoryInterface */
     private $repository;
 
-    public function __construct(CachedUserRepository $repository)
+    public function __construct(UserRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }

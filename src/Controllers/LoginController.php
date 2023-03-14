@@ -3,7 +3,7 @@
 namespace S25\Auth\Controllers;
 
 use App\Http\Controllers\Controller;
-use S25\Auth\CachedUserRepository;
+use S25\Auth\S25UserRepository;
 use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
@@ -33,15 +33,15 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
-    /** @var CachedUserRepository */
+    /** @var S25UserRepository */
     private $userRepository;
 
     /**
      * Create a new controller instance.
      *
-     * @param CachedUserRepository $userRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(CachedUserRepository $userRepository)
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('guest')->except('logout', 'loginByToken');
 
