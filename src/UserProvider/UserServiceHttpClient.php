@@ -16,12 +16,18 @@ class UserServiceHttpClient
     {
         $this->httpClient = $client;
         $this->apiUrl = rtrim(config('through.auth_service'), '/');
+        $this->apiKey = config('through.api_key', '');
     }
 
     public function getById(string $uid)
     {
         $response = $this->httpClient->get(
-            sprintf('%s/api/user/%s', $this->apiUrl, $uid)
+            sprintf('%s/api/user/%s', $this->apiUrl, $uid),
+            [
+              'headers' => [
+                'X-API-KEY' => $this->apiKey,
+              ]
+            ]
         );
 
         return $response->getBody()->getContents();
@@ -38,7 +44,10 @@ class UserServiceHttpClient
         $response = $this->httpClient->get(
             sprintf('%s/api/users', $this->apiUrl),
             [
-                'query' => $query
+                'query' => $query,
+                'headers' => [
+                  'X-API-KEY' => $this->apiKey,
+                ]
             ]
         );
 
