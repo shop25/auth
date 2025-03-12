@@ -9,8 +9,11 @@ class UserServiceHttpClient
     /** @var Client */
     private $httpClient;
 
-    /** @var string */
-    private $apiUrl;
+  /** @var string */
+  private $apiUrl;
+
+  /** @var string */
+  private $apiKey;
 
     public function __construct(Client $client)
     {
